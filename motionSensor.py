@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO                           #Import GPIO library
 import time                                       #Import time library
+import os
 GPIO.setmode(GPIO.BCM)                            #Set GPIO pin numbering
 PIR = 20                                          #Associate pin 26 to pir
 GPIO.setup(PIR, GPIO.IN)                          #Set pin as GPIO in 
@@ -11,6 +12,7 @@ try:
 	while True:
 	   if GPIO.input(PIR):                            #Check whether pir is HIGH
 	      print "Motion Detected!"
+	      os.system('raspistill -o ruch.jpg')
 	      time.sleep(2)                               #D1- Delay to avoid multiple detection
 	   #else:
 	   #	  print "No motion!"

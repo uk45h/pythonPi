@@ -7,7 +7,7 @@ print "Waiting for sensor to settle"
 time.sleep(2)                                     #Waiting 2 seconds for the sensor to initiate
 print "Detecting motion"
 while True:
-   if GPIO.input(pir):                            #Check whether pir is HIGH
+   if GPIO.input(PIR):                            #Check whether pir is HIGH
       print "Motion Detected!"
       time.sleep(2)                               #D1- Delay to avoid multiple detection
    else:

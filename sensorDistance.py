@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import os
 GPIO.setmode(GPIO.BCM)
 
 TRIG = 23
@@ -33,5 +34,6 @@ distance = pulse_duration x 17150
 distance = round(distance, 2)
 
 print "Distance:",distance,"cm"
+os.system('raspistill -o odleglosc.jpg')
 
 GPIO.cleanup()

@@ -13,8 +13,8 @@ try:
 	      print "Motion Detected!"
 	      time.sleep(2)                               #D1- Delay to avoid multiple detection
 	   else:
-	   	  print "No motion!"
-	   time.sleep(0.5)                                #While loop delay should be less than detection(hardware) delay
+	   	  #print "No motion!"
+	   time.sleep(0.2)                                #While loop delay should be less than detection(hardware) delay
 
 except KeyboardInterrupt:  
     # here you put any code you want to run before the program   

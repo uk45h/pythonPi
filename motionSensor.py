@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO                           #Import GPIO library
 import time                                       #Import time library
-GPIO.setmode(GPIO.BOARD)                          #Set GPIO pin numbering
-PIR = 21                                         #Associate pin 26 to pir
+GPIO.setmode(GPIO.BCM)                            #Set GPIO pin numbering
+PIR = 20                                          #Associate pin 26 to pir
 GPIO.setup(PIR, GPIO.IN)                          #Set pin as GPIO in 
 print "Waiting for sensor to settle"
 time.sleep(2)                                     #Waiting 2 seconds for the sensor to initiate

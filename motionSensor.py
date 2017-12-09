@@ -19,7 +19,7 @@ try:
 except KeyboardInterrupt:  
     # here you put any code you want to run before the program   
     # exits when you press CTRL+C  
-    print "przerwane na żądanie" # print value of counter  
+    print "break on request!" # print value of counter  
 
 except:  
     # this catches ALL other exceptions including errors.  

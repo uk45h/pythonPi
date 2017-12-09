@@ -34,6 +34,6 @@ distance = pulse_duration * 17150
 distance = round(distance, 2)
 
 print "Distance:",distance,"cm"
-os.system('raspistill -o odleglosc.jpg')
+#os.system('raspistill -o odleglosc.jpg')
 
 GPIO.cleanup()

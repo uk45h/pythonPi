@@ -9,5 +9,7 @@ print "Detecting motion"
 while True:
    if GPIO.input(pir):                            #Check whether pir is HIGH
       print "Motion Detected!"
+   else
+   	  print "No motion!"
       time.sleep(2)                               #D1- Delay to avoid multiple detection
    time.sleep(0.1)                                #While loop delay should be less than detection(hardware) delay

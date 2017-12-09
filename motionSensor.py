@@ -12,7 +12,7 @@ try:
 	while True:
 	   if GPIO.input(PIR):                            #Check whether pir is HIGH
 	      print "Motion Detected!"
-	      os.system('raspistill -o ruch.jpg')
+	      os.system('raspistill -o ruch.jpg --nopreview --exposure sports --timeout 1')
 	      time.sleep(2)                               #D1- Delay to avoid multiple detection
 	   #else:
 	   #	  print "No motion!"

@@ -15,7 +15,7 @@ msg['Reply-to'] = 'rydygiera1162@gmail.com'
  
 msg.preamble = 'Multipart massage.\n'
  
-part = MIMEText("Zdjęcie mieszkania w załączniku")
+part = MIMEText("Zdjecie mieszkania w zalaczniku")
 msg.attach(part)
  
 part = MIMEApplication(open(str(sys.argv[2]),"rb").read())

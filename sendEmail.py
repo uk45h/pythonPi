@@ -5,6 +5,7 @@ from smtplib import SMTP
 import smtplib
 import sys
 import os
+import time
 
 
 os.system('raspistill -o ruch.jpg --exposure auto  --timeout 1 -q 100 -w 1920 -h 1080')

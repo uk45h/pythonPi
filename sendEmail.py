@@ -1,25 +1,31 @@
-def send_email(user, pwd, recipient, subject, body):
-    import smtplib
+from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
+from email.mime.multipart import MIMEMultipart
+from smtplib import SMTP
+import smtplib
+import sys
 
-    gmail_user = l.leszewski@gmail.com
-    gmail_pwd = pwd
-    FROM = user
-    TO = recipient if type(recipient) is list else [recipient]
-    SUBJECT = subject
-    TEXT = body
 
-    # Prepare actual message
-    message = """From: %s\nTo: %s\nSubject: %s\n\n%s
-    """ % (FROM, ", ".join(TO), SUBJECT, TEXT)
-    try:
-        server = smtplib.SMTP("smtp.gmail.com", 587)
-        server.ehlo()
-        server.starttls()
-        server.login(gmail_user, gmail_pwd)
-        server.sendmail(FROM, TO, message)
-        server.close()
-        print 'successfully sent the mail'
-    except:
-        print "failed to send mail"
+recipients = ['l.leszewski@gmail.com'] 
+emaillist = [elem.strip().split(',') for elem in recipients]
+msg = MIMEMultipart()
+msg['Subject'] = str(sys.argv[1])
+msg['From'] = 'rydygiera1162@gmail.com'
+msg['Reply-to'] = 'rydygiera1162@gmail.com'
+ 
+msg.preamble = 'Multipart massage.\n'
+ 
+part = MIMEText("Zdjęcie mieszkania w załączniku")
+msg.attach(part)
+ 
+part = MIMEApplication(open(str(sys.argv[2]),"rb").read())
+part.add_header('Content-Disposition', 'attachment', filename=str(sys.argv[2]))
+msg.attach(part)
+ 
 
-send_email(lleszewski,  xxxxx, l.leszewski@gmail.com, l.leszewski@gmail.com, test raspberry, zdjecie mieszkania)
+server = smtplib.SMTP("smtp.gmail.com:587")
+server.ehlo()
+server.starttls()
+server.login("rydygiera1162@gmail.com", "1qazXSW@")
+ 
+server.sendmail(msg['From'], emaillist , msg.as_string())

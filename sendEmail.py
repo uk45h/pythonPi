@@ -4,8 +4,11 @@ from email.mime.multipart import MIMEMultipart
 from smtplib import SMTP
 import smtplib
 import sys
+import os
 
 
+os.system('raspistill -o ruch.jpg --exposure auto  --timeout 1 -q 100 -w 1920 -h 1080')
+time.sleep(3)    
 recipients = ['l.leszewski@gmail.com'] 
 emaillist = [elem.strip().split(',') for elem in recipients]
 msg = MIMEMultipart()

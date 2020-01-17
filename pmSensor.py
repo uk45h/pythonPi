@@ -83,5 +83,5 @@ def main():
         append_csv(csv_file, field_list, data)
 
 if __name__ == '__main__':
-    print(read_nova_dust_sensor())
-    #main()
+    #print(read_nova_dust_sensor())
+    main()

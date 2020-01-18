@@ -34,4 +34,4 @@ if args.csv:
 #put to sleep so it will be quite
 #sensor.sleep()
 
-print(pmValue)
+print(data)

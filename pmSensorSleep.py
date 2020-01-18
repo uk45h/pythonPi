@@ -6,11 +6,11 @@ import datetime
 sensor = SDS011("/dev/ttyUSB0", use_query_mode=True)
 
 #awake device
-#sensor.sleep(sleep=False) 
-#time.sleep(15)
+sensor.sleep(sleep=False) 
+time.sleep(20)
 
 data = sensor.query() #(pm2.5,pm10)
-print(data)
+print("data: PM2.5 ",data[0]," PM10 ",data[1])
 
 parser = argparse.ArgumentParser(description='Read data from Nova PM sensor.')
 #parser.add_argument('--device', default='/dev/ttyUSB0',
@@ -33,5 +33,5 @@ if args.csv:
 #print(pmValue)
 
 #put to sleep so it will be quite
-#sensor.sleep()
+sensor.sleep()
 

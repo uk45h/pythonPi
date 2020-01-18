@@ -3,6 +3,24 @@ import time
 import argparse
 import datetime
 
+import os
+import csv
+import io
+
+def append_csv(filename, field_names, row_dict):
+    """
+    Create or append one row of data to csv file.
+    """
+    file_exists = os.path.isfile(filename)
+    with io.open(filename, 'a', encoding='utf-8') as csvfile:
+        writer = csv.DictWriter(csvfile,
+                                delimiter=',',
+                                lineterminator='\n',
+                                fieldnames=field_names)
+        if not file_exists:
+            writer.writeheader()
+        writer.writerow(row_dict)
+
 sensor = SDS011("/dev/ttyUSB0", use_query_mode=True)
 
 #awake device
@@ -30,7 +48,7 @@ if args.csv:
                                'month': '%02d' % today.month,
                                'day': '%02d' % today.day,
                                }
-    sensor.append_csv(csv_file, field_list, data)
+    append_csv(csv_file, field_list, data)
 
 #pmValue = sensor.query()
 #print(pmValue)

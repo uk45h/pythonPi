@@ -10,7 +10,7 @@ sensor.sleep(sleep=False)
 time.sleep(20)
 
 pmValue = sensor.query() #(pm2.5,pm10)
-if pmValue = None then
+if pmValue == None:
 	pmValue=(0,0)
 data={'PM10': pmValue[1], 'PM2_5': pmValue[0]}
 print("data: PM2.5 ",data["PM2_5"]," PM10 ",data["PM10"])
@@ -30,7 +30,7 @@ if args.csv:
                                'month': '%02d' % today.month,
                                'day': '%02d' % today.day,
                                }
-    append_csv(csv_file, field_list, data)
+    sensor.append_csv(csv_file, field_list, data)
 
 #pmValue = sensor.query()
 #print(pmValue)

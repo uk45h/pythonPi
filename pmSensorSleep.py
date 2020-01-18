@@ -10,6 +10,8 @@ sensor.sleep(sleep=False)
 time.sleep(20)
 
 pmValue = sensor.query() #(pm2.5,pm10)
+if pmValue = None then
+	pmValue=(0,0)
 data={'PM10': pmValue[1], 'PM2_5': pmValue[0]}
 print("data: PM2.5 ",data["PM2_5"]," PM10 ",data["PM10"])
 

@@ -2,6 +2,9 @@
 """
 import struct
 import serial
+import os
+import csv
+import io
 
 #TODO: Commands against the sensor should read the reply and return success status.
 
@@ -154,6 +157,20 @@ class SDS011(object):
         pm25 = raw[0] / 10.0
         pm10 = raw[1] / 10.0
         return (pm25, pm10)
+
+    def append_csv(filename, field_names, row_dict):
+        """
+        Create or append one row of data to csv file.
+        """
+        file_exists = os.path.isfile(filename)
+        with io.open(filename, 'a', encoding='utf-8') as csvfile:
+            writer = csv.DictWriter(csvfile,
+                                    delimiter=',',
+                                    lineterminator='\n',
+                                    fieldnames=field_names)
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow(row_dict)
 
     def read(self):
         """Read sensor data.

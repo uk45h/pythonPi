@@ -17,10 +17,9 @@ parser.add_argument('--csv', default=None,
 args = parser.parse_args()
 
 data = sensor.query() #(pm2.5,pm10)
-logging.info('PM10=% 3.1f ug/m^3 PM2.5=% 3.1f ug/m^3', data[2], data[1])
 
 if args.csv:
-	field_list = ['date', 'PM10', 'PM2_5']
+    field_list = ['date', 'PM10', 'PM2_5']
     today = datetime.datetime.today()
     data['date'] = today.strftime('%Y-%m-%d %H:%M:%S')
     csv_file = args.csv % {'year': today.year,

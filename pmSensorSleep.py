@@ -9,8 +9,9 @@ sensor = SDS011("/dev/ttyUSB0", use_query_mode=True)
 sensor.sleep(sleep=False) 
 time.sleep(20)
 
-data = sensor.query() #(pm2.5,pm10)
-print("data: PM2.5 ",data[0]," PM10 ",data[1])
+pmValue = sensor.query() #(pm2.5,pm10)
+data={'PM10': pmValue[1], 'PM2_5': pmValue[0]}
+print("data: PM2.5 ",data["PM2_5"]," PM10 ",data["PM10"])
 
 parser = argparse.ArgumentParser(description='Read data from Nova PM sensor.')
 #parser.add_argument('--device', default='/dev/ttyUSB0',
